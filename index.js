@@ -28,7 +28,7 @@ client.on('messageCreate', async (message) => {
     const member = await members.find(m => m.id === message.author.id)
     const isAdmin = member._roles.includes(adminRole)
     if (!isAdmin) return message.channel.send(`Tu ne possèdes pas l'accès à cette commande!`)
-    await members.forEach(m => m.roles.add('1012540178981736457'))
+    await members.forEach(m => m.roles.add(memberRole))
     return message.channel.send(`Role ajouté à tous les membres!`)
 })
 
