@@ -25,7 +25,7 @@ client.on('messageCreate', async (message) => {
     if (message.content !== '->syncRoles') return
 
     const members = await message.guild.members.fetch()
-    const member = await members.find(m => m.id === message.author.id)
+    const member = members.find(m => m.id === message.author.id)
     const isAdmin = member._roles.includes(adminRole)
     if (!isAdmin) return message.channel.send(`Tu ne possèdes pas l'accès à cette commande!`)
     await members.forEach(m => m.roles.add(memberRole))
