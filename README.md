@@ -1,0 +1,11 @@
+# .env rules:
+
+```
+RULES_MESSAGE_ID=
+RULES_EMOJI=
+RULES_ROLE=
+MEMBER_ROLE=
+BOT_ID=
+ADMIN_ROLE=
+TOKEN=
+```
