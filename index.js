@@ -23,11 +23,13 @@ client.on('ready', async () => {
 client.on('messageCreate', async (message) => {
     if (message.author.id === botId) return
     if (message.content !== '->syncRoles') return
-    const member = await message.guild.members.fetch(message.author.id)
+
+    const members = await message.guild.members.fetch()
+    const member = await members.find(m => m.id === message.author.id)
     const isAdmin = member._roles.includes(adminRole)
     if (!isAdmin) return message.channel.send(`Tu ne possèdes pas l'accès à cette commande!`)
-    const members = await message.guild.members.fetch()
-    return members.forEach(m => m.roles.add(memberRole))
+    await members.forEach(m => m.roles.add('1012540178981736457'))
+    return message.channel.send(`Role ajouté à tous les membres!`)
 })
 
 client.on('messageReactionAdd', async (reaction, user) => {
