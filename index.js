@@ -1,9 +1,23 @@
 const { Client, GatewayIntentBits, Partials } = require('discord.js')
 require('dotenv').config()
 
+const intents = [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.MessageContent
+]
+
+const partials = [
+    Partials.Message,
+    Partials.Channel,
+    Partials.Reaction
+]
+
 const client = new Client({ 
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMembers, GatewayIntentBits.MessageContent],
-    partials: [Partials.Message, Partials.Channel, Partials.Reaction]
+    intents,
+    partials
 })
 
 const rulesMessageId = process.env.RULES_MESSAGE_ID
